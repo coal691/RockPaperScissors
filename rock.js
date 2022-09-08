@@ -13,9 +13,9 @@ function  getComputerChoice() {
             break;
     }
 }
-const computerSelection = getComputerChoice();
 
-console.log(computerSelection);
+
+
 
 function getPlayerChoice() {
     const pChoice = prompt("Rock, Paper, or Scissors?");
@@ -23,32 +23,51 @@ function getPlayerChoice() {
     return playerChoice;
 };
 
-const playerSelection = getPlayerChoice();
 
-console.log(playerSelection);
 
-function round(computerSelection, playerSelection){
+
+
+function playRound(){
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
     if (computerSelection=== "Rock" && playerSelection === "paper"){
-        return "You win! Paper beats Rock."
+        return 1
     } else if (computerSelection === "Rock" && playerSelection === "rock"){
-        return "Wow! It's a tie!"
+        return 0
     } else if (computerSelection === "Rock" && playerSelection === "scissors"){
-        return "Aw. You lost :("
+        return 2
     }
     if (computerSelection=== "Paper" && playerSelection === "scissors"){
-        return "You win! Scissors beats Paper."
+        return 1
     } else if (computerSelection === "Paper" && playerSelection === "paper"){
-        return "Wow! It's a tie!"
+        return 0
     } else if (computerSelection === "Paper" && playerSelection === "rock"){
-        return "Aw. You lost :("
+        return 2
     }
     if (computerSelection=== "Scissors" && playerSelection === "rock"){
-        return "You win! Rock beats Scissors."
+        return 1
     } else if (computerSelection === "Scissors" && playerSelection === "scissors"){
-        return "Wow! It's a tie!"
+        return 0
     } else if (computerSelection === "Scissors" && playerSelection === "paper"){
-        return "Aw. You lost :("
+        return 2
     }
 }
-const rOutcome = round(computerSelection, playerSelection);
-console.log(rOutcome);
+
+
+
+
+
+function game(){
+    let playerScore = 0;
+    let compScore = 0;
+    for (let i=1; i<6; i++){
+        if (i<6) {
+            let rOutcome = playRound()
+                if (rOutcome === 1) {
+                    ++playerScore
+                } else if (rOutcome === 2){
+                    ++compScore
+                } console.log("Round " + i + " is over! You have " + playerScore + " and the computer has " + compScore + "!");
+        } 
+}
+}
